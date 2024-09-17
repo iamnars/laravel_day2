@@ -1,0 +1,1 @@
+<a href="" {{$attributes->merge(['class' => 'btn'])}}>This is action area</a>
