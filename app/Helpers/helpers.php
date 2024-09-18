@@ -21,4 +21,30 @@
         return $msg;
     }
 
+    function format_report_date($d, $formatType) {
+        // Check for the '0000-00-00' 
+        if ($d == '0000-00-00') {
+            return 'Invalid date';
+        }
+    
+ 
+        $timestamp = strtotime($d);
+    
+        if (!$timestamp) {
+            return 'Invalid date';
+        }
+    
+        
+        switch ($formatType) {
+            case 1:
+                return date('l, F d, Y', $timestamp); // Monday, June 01, 2023
+            case 2:
+                return date('d F Y - l', $timestamp); // 01 June 2024 - Monday
+            case 3:
+                return 'Today is ' . date('l, F d, Y', $timestamp); // Today is Monday, June 01, 2024
+            default:
+                return 'Invalid format type';
+        }
+    }
+
 ?>

@@ -1,22 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<x-page-header pagetitle="Page One" class="bg-white"/> 
+<x-page-header pagetitle="List of Movies" class="bg-white"/> 
 
 <div class="wrapper wrapper-content">
-    <div class="middle-box text-center animated fadeInRightBig">
-        <h3 class="font-bold">This is page content</h3>
-        <div class="error-desc">
-            You can create here any grid layout you want. And any variation layout you imagine:) Check out
-            main dashboard and other site. It use many different layout.
-            <br /><a href="index.html" class="btn btn-primary m-t">Dashboard</a>
-        </div>
+    <div class="animated fadeInRightBig">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>DESCRIPTION</th>
+                    <th>RATING</th>
+                    <th>PUBLISHED</th>
+                    <th>DIRECTOR</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+                <td>xxx</td>
+
+            </tbody>
+        </table>
+       
 
 
-        <x-sub-header>
-            Submit my Date
-            <p>This is a paragraph</p>
-        </x-sub-header>
 
 
     </div>

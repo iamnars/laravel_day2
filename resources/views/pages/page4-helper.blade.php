@@ -38,6 +38,14 @@
         @endphp
 
         <p>Result: {{compare_dates($d1, $d2)}}</p>
+
+        @php
+            $d = "2023-06-01";
+        @endphp
+        <p>Format 1: {{format_report_date($d, 1)}}</p>
+        <p>Format 2: {{format_report_date($d, 2)}}</p>
+        <p>Format 3: {{format_report_date($d, 3)}}</p>
+        <p>Format 4: {{format_report_date($d, 4)}}</p>
     </div>
 </div>
 @endsection
