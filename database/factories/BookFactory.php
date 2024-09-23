@@ -22,7 +22,7 @@ class BookFactory extends Factory
             'country_id'=> fake()->numberBetween(1,50),
             'stocks' => fake()->numberBetween(1,100),
             'amount'=> fake()->randomFloat(2, 0, 1000),
-            'photo' => fake()->text()
+            'photo' => fake()->imageUrl(640, 480, 'products', true)
         ];
     }
 }

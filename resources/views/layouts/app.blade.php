@@ -12,6 +12,7 @@
     <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 
 </head>
 
@@ -47,11 +48,11 @@
                     </li>
 
                     <li>
-                        <a href="{{url('/page1')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Page One</span></a>
+                        <a href="{{url('/page1')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Movies</span></a>
                     </li>
 
                     <li>
-                        <a href="{{url('/page2')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Page Two</span></a>
+                        <a href="{{url('/page2')}}"><i class="fa fa-diamond"></i> <span class="nav-label">Books</span></a>
                     </li>
 
                     <li>
@@ -216,3 +217,21 @@
 </body>
 
 </html>
+
+<script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script>
+
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('45bce9f457d583bae91f', {
+      cluster: 'ap1'
+    });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function(data) {
+    //   alert(JSON.stringify(data));
+        toastr.info(data.msg);
+    });
+  </script>
