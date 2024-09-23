@@ -16,24 +16,29 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>CATEGORY</th>
                     <th>TITLE</th>
                     <th>DESCRIPTION</th>
                     <th>RATING</th>
                     <th>PUBLISHED</th>
                     <th>DIRECTOR</th>
+                    <th>THUMBNAIL</th>
                     <th>ACTION </th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach ($data as $item)
+                {{-- @foreach ($data as $item) --}}
+                @forelse ($data as $item)
                     <tr>
                         <td>{{$item->id}}</td>
+                        <td>{{$item->category}}</td>
                         <td>{{$item->title}}</td>
                         <td>{{$item->description}}</td>
                         <td>{{$item->star_rating}}</td>
                         <td>{{$item->date_published}}</td>
-                        <td>{{$item->director}}</td>
+                        <td>by {{$item->director}}</td>
+                        <td><img src="{{asset('_uploads/'.$item->image)}}" width="80"/></td>
                         <td class="col-2">
                     
                                 <a href="{{url('/edit-movie-form',$item->id)}}" class="btn btn-sm btn-primary">
@@ -46,7 +51,9 @@
                         
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <td colspan="8">.:No records found.</td>
+                @endforelse
             </tbody>
         </table>
         <a href="{{url('/print')}}">Print</a>
